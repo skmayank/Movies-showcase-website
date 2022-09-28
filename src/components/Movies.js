@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+// import { moviesList } from '../utility/constants';
+import Card from './Card';
 
-const Movies = () => {
+const Movies = ({moviesList}) => {
+  console.log("moviesList", moviesList)
   return (
-    <div>Movies</div>
+    <div>
+      {moviesList?.map(d => (
+        <Card movie={d} />
+      ))}
+    </div>
   )
 }
 
-export default Movies
+export default Movies;
