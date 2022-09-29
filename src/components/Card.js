@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from "react-router-dom";
 
 const Card = ({movie, handleSingleMovie }) => {
@@ -6,12 +5,12 @@ const Card = ({movie, handleSingleMovie }) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate('/singleMovie')
+    navigate('/singleMovie');
     handleSingleMovie(movie);
   }
-  
+
   return (
-    <div class="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer" onClick={handleCardClick}>
+    <div class="rounded overflow-hidden shadow-lg cursor-pointer w-full sm:w-[48%] md:w-[31%] lg:w-[24%]" onClick={handleCardClick}>
       <img class="w-full" src={Images[0]} alt="Sunset in the mountains" />
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{Title}</div>
@@ -23,9 +22,6 @@ const Card = ({movie, handleSingleMovie }) => {
         {Genre?.map(d => (
           <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{d}</span>
         ))}
-        {/* <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span> */}
       </div>
     </div>
   )

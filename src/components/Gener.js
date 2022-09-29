@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 import { moviesList } from '../utility/constants';
-import { handleSearch } from '../utility/commonFunction'
+import { handleSearch } from '../utility/commonFunction';
 import Card from './Card';
 
 const Gener = ({selectedGener, handleSingleMovie, searchValue}) => {
@@ -14,7 +14,7 @@ const Gener = ({selectedGener, handleSingleMovie, searchValue}) => {
   }, [selectedGener, moviesList, searchValue])
 
   return (
-    <div>
+    <div className='p-[40px] flex flex-wrap gap-5 justify-center'>
       {filteredMovies?.map(d => (
         <Card movie={d} handleSingleMovie={handleSingleMovie} />
       ))}
@@ -22,4 +22,4 @@ const Gener = ({selectedGener, handleSingleMovie, searchValue}) => {
   )
 }
 
-export default Gener
+export default Gener;

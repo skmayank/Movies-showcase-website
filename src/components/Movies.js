@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 
 import { moviesList } from '../utility/constants';  
-import { handleSearch } from '../utility/commonFunction'
+import { handleSearch } from '../utility/commonFunction';
 import Card from './Card';
 
 const Movies = ({handleSingleMovie, searchValue}) => {
@@ -13,7 +13,7 @@ const Movies = ({handleSingleMovie, searchValue}) => {
   }, [searchValue, moviesList])
 
   return (
-    <div>
+    <div className='p-[40px] flex flex-wrap gap-5 justify-center'>
       {filteredMovies?.map(d => (
         <Card movie={d} handleSingleMovie={handleSingleMovie} />
       ))}
