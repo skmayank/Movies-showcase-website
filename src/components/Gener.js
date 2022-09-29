@@ -11,7 +11,7 @@ const Gener = ({ selectedGener, handleSingleMovie, searchValue }) => {
     let filteredData = moviesList.filter(d => d.Genre.includes(selectedGener))
     filteredData = handleSearch(filteredData, searchValue);
     setFilteredMovies(filteredData)
-  }, [selectedGener, moviesList, searchValue])
+  }, [selectedGener, searchValue])
 
   return (
     <div className='p-[40px] flex flex-wrap gap-5 justify-center'>

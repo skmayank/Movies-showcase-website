@@ -18,7 +18,7 @@ const Card = ({ movie, handleSingleMovie }) => {
       </div>
       <div className="px-6 pt-4 pb-2">
         {Genre?.map((d, i) => (
-          <span key={i} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{d}</span>
+          <span key={i} className="inline-block bg-sky-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">{d}</span>
         ))}
       </div>
     </div>

@@ -10,7 +10,7 @@ const Movies = ({ handleSingleMovie, searchValue }) => {
   useEffect(() => {
     const filteredData = handleSearch(moviesList, searchValue);
     setFilteredMovies(filteredData);
-  }, [searchValue, moviesList])
+  }, [searchValue])
 
   return (
     <div className='p-[40px] flex flex-wrap gap-5 justify-center'>
