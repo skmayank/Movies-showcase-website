@@ -1,40 +1,31 @@
-import { useState, useEffect } from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { useState } from 'react';
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Movies from './components/Movies';
 import SingleMovie from './components/SingleMovie';
 import Gener from './components/Gener';
 import Header from "./components/Header";
-import { moviesList } from './utility/constants';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
-  const [filteredData, setFilteredData] = useState([]);
-  const [clickedMovie, setClickedMovie] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState('');
+  const [selectedGener, setSelectedGener] = useState('All');
 
-  useEffect(()=> {
-    if (searchValue !== '') {
-      const filtred = moviesList.filter((d) => d.Title.toLowerCase().includes(searchValue.toLowerCase()));
-      setFilteredData(filtred);
-    } else {
-      setFilteredData(moviesList);
-    }
-  }, [searchValue])
+  const navigate = useNavigate();
+
+  const handleSelectedGener = (gener) => {
+    gener === 'All' ? navigate('/') : navigate('/gener');
+    setSelectedGener(gener);
+  }
 
   return (
     <div>
-      <Router>
-        <Header handleChange={setSearchValue} />
-        <Routes>
-          <Route path="/"  element={<Movies moviesList={filteredData} />} />
-          <Route path="/singleMovie" element={<SingleMovie />} />
-          <Route path="/gener" element={<Gener />} />
-        </Routes>
-      </Router>
+      <Header handleChange={setSearchValue} handleSelectedGener={handleSelectedGener} />
+      <Routes>
+        <Route path="/"  element={<Movies handleSingleMovie={setSelectedMovie} searchValue={searchValue}/>} />
+        <Route path="/singleMovie/:movie" element={<SingleMovie selectedMovie={selectedMovie}/>} />
+        <Route path="/gener" element={<Gener selectedGener={selectedGener} handleSingleMovie={setSelectedMovie} searchValue={searchValue} />} />
+      </Routes>
     </div>
   )
 }
