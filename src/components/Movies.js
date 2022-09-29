@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import { moviesList } from '../utility/constants';
-import { handleSearch } from '../utility/commonFunction'
+import { handleSearch } from '../utility/moviesFilters';
 import Card from './Card';
 
 const Movies = ({ handleSingleMovie, searchValue }) => {
-  const [filteredMovies, setFilteredMovies] = useState([])
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
     const filteredData = handleSearch(moviesList, searchValue);

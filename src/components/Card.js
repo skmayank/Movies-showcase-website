@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ movie, handleSingleMovie }) => {
   const { Poster, Title, Genre, Year } = movie;
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/${Title}`, { state: movie });
+    navigate(`/singlemovie/${Title}`, { state: movie });
     handleSingleMovie(movie);
   }
 
@@ -18,7 +18,9 @@ const Card = ({ movie, handleSingleMovie }) => {
       </div>
       <div className="px-6 pt-4 pb-2">
         {Genre?.map((d, i) => (
-          <span key={i} className="inline-block bg-sky-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">{d}</span>
+          <span key={i} className="inline-block bg-sky-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">
+            {d}
+          </span>
         ))}
       </div>
     </div>

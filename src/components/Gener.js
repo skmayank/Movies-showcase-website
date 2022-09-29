@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
 import { moviesList } from '../utility/constants';
-import { handleSearch } from '../utility/commonFunction';
+import { handleSearch, handleChangeGener } from '../utility/moviesFilters';
 import Card from './Card';
 
 const Gener = ({ selectedGener, handleSingleMovie, searchValue }) => {
   const [filteredMovies, setFilteredMovies] = useState([])
 
   useEffect(() => {
-    let filteredData = moviesList.filter(d => d.Genre.includes(selectedGener))
+    let filteredData = handleChangeGener(moviesList);
     filteredData = handleSearch(filteredData, searchValue);
-    setFilteredMovies(filteredData)
+    setFilteredMovies(filteredData);
+
   }, [selectedGener, searchValue])
 
   return (

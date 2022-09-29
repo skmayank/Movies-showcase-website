@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
 import Carousel from 'react-multi-carousel'
-import "react-multi-carousel/lib/styles.css";
+import 'react-multi-carousel/lib/styles.css';
 import { useLocation } from 'react-router-dom';
 
 const responsive = {
@@ -36,15 +35,14 @@ const SingleMovie = () => {
       >
         {Images.map((image, i) => {
           return (
-            <>
+            <div key={i}>
               <img
-                key={i}
                 className="rounded-3 w-full h-[400px]"
                 src={image}
                 height={400}
                 alt=""
               />
-            </>
+            </div>
           );
         })}
       </Carousel>
@@ -56,7 +54,7 @@ const SingleMovie = () => {
         </p>
         <div className="pt-4 pb-2">
           {Genre?.map((d, i) => (
-            <span key={i} className="inline-block bg-sky-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">{d}</span>
+            <span key={d} className="inline-block bg-sky-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">{d}</span>
           ))}
         </div>
         <div className='flex flex-wrap'>
