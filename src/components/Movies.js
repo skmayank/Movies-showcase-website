@@ -1,21 +1,21 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { moviesList } from '../utility/constants';  
-import { handleSearch } from '../utility/commonFunction';
+import { moviesList } from '../utility/constants';
+import { handleSearch } from '../utility/commonFunction'
 import Card from './Card';
 
-const Movies = ({handleSingleMovie, searchValue}) => {
+const Movies = ({ handleSingleMovie, searchValue }) => {
   const [filteredMovies, setFilteredMovies] = useState([])
 
-  useEffect(()=> {
+  useEffect(() => {
     const filteredData = handleSearch(moviesList, searchValue);
     setFilteredMovies(filteredData);
   }, [searchValue, moviesList])
 
   return (
     <div className='p-[40px] flex flex-wrap gap-5 justify-center'>
-      {filteredMovies?.map(d => (
-        <Card movie={d} handleSingleMovie={handleSingleMovie} />
+      {filteredMovies?.map((d, i) => (
+        <Card key={i} movie={d} handleSingleMovie={handleSingleMovie} />
       ))}
     </div>
   )

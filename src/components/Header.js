@@ -1,7 +1,7 @@
 import DropDown from '../subComponents/DropDown';
 import Search from '../subComponents/Search';
 
-const Header = ({handleChange, handleSelectedGener}) => {
+const Header = ({ handleChange, handleSelectedGener }) => {
 
   return (
     <div className='px-[40px] bg-[#025FEB]'>

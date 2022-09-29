@@ -23,7 +23,7 @@ function App() {
       <Header handleChange={setSearchValue} handleSelectedGener={handleSelectedGener} />
       <Routes>
         <Route path="/"  element={<Movies handleSingleMovie={setSelectedMovie} searchValue={searchValue}/>} />
-        <Route path="/singleMovie/:movie" element={<SingleMovie selectedMovie={selectedMovie}/>} />
+        <Route path="/:movie" element={<SingleMovie selectedMovie={selectedMovie}/>} />
         <Route path="/gener" element={<Gener selectedGener={selectedGener} handleSingleMovie={setSelectedMovie} searchValue={searchValue} />} />
       </Routes>
     </div>
